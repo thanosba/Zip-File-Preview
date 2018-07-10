@@ -1,0 +1,76 @@
+/* css/tree-styles.css */
+
+.file_info{
+	margin: 0px 0;
+	position: relative;
+	padding: 20px 20px 0px 15px;
+}
+
+.tree ul{
+	padding-left: 15px;
+}
+.tree li {
+    margin: 0px 0;
+	list-style-type: none;
+    position: relative;
+	padding: 5px 0px 0px 5px;
+	/*border: 1px solid #333;*/
+}
+
+.tree li::before{
+    content: '';
+	position: absolute; 
+    top: 0;
+	width: 1px; 
+    height: 100%;
+	right: auto; 
+    left: -8px;
+	border-left: 1px solid #ccc;
+    bottom: 50px;
+}
+.tree li::after{
+    content: '';
+	position: absolute; 
+    top: 15px; 
+	width: 10px; 
+    height: 20px;
+	right: auto; 
+    left: -8px;
+	border-top: 1px solid #ccc;
+}
+
+.tree li {
+    cursor:default;
+}
+
+/*Remove connectors before root*/
+.tree > ul > li::before, .tree > ul > li::after{
+	border: 0;
+}
+/*Remove connectors after last child*/
+.tree li:last-child::before{ 
+      height: 15px;
+}
+
+
+span.li_wrap{
+	display: block;
+}
+
+span.li_wrap:hover{
+	background: #E0F0FF;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+}
+
+/*Connector styles on hover*/
+.tree li :hover +ul li::after, 
+.tree li :hover +ul li::before, 
+.tree li :hover +ul::before, 
+.tree li :hover +ul ul::before{
+	border-color:  #94a0b4;
+}
